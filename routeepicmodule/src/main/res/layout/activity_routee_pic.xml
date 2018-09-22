@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RouteePicActivity">
+
+    <com.routee.pic.camera.CameraView
+        android:id="@+id/cameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.routee.pic.camera.CustomerCameraCoverView
+        android:id="@+id/rectView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#000">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="拍摄照片"
+                android:textColor="#fff"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/ivCloseCam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="13dp"
+                android:src="@mipmap/icon_close" />
+
+            <ImageView
+                android:id="@+id/ivFlashSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/ivCameraSwitch"
+                android:padding="13dp"
+                android:src="@mipmap/icon_flash_on" />
+
+            <ImageView
+                android:id="@+id/ivCameraSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="13dp"
+                android:src="@mipmap/icon_camera_switch" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ivCameraResult"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#000"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="把物品放在中间拍摄效果更好"
+                android:textColor="#fff"
+                android:textSize="13sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/ivDone"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/icon_camera_done" />
+
+                <ImageView
+                    android:id="@+id/ivRepic"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/icon_camera_take" />
+
+                <ImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/icon_camera_take" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ViewStub
+        android:id="@+id/viewstub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:layout="@layout/viewstub_pic" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/cbCam"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableBottom="@drawable/selector_indicator_tv_bottom"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="拍摄照片"
+            android:textColor="#fff" />
+
+        <RadioButton
+            android:id="@+id/cbPic"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:button="@null"
+            android:drawableBottom="@drawable/selector_indicator_tv_bottom"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="选择相册"
+            android:textColor="#fff" />
+    </RadioGroup>
+</FrameLayout>
