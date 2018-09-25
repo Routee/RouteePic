@@ -16,7 +16,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.routee.pic.R
 import com.routee.pic.activity.RouteePicActivity
 import com.routee.pic.entity.RouteePicEntity
 import com.routee.pic.loader.ImageEngine

@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/ivCameraSwitch"
                 android:padding="13dp"
-                android:src="@mipmap/icon_flash_on" />
+                android:src="@mipmap/icon_flash_auto" />
 
             <ImageView
                 android:id="@+id/ivCameraSwitch"

@@ -31,7 +31,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import com.routee.picdemo.R;
+import com.routee.pic.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

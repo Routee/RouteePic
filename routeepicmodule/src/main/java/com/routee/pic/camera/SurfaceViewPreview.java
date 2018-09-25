@@ -24,7 +24,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.routee.picdemo.R;
+import com.routee.pic.R;
 
 class SurfaceViewPreview extends PreviewImpl {
 

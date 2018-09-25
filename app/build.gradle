@@ -7,7 +7,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.routee.routeepic"
+        applicationId "com.routee.picdemo"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 100
@@ -27,8 +27,8 @@ dependencies {
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v7'
     }
-//    implementation project(':routeepicmodule')
-    implementation 'com.github.Routee:RouteePic:1.0.0'
+    implementation project(':routeepicmodule')
+//    implementation 'com.github.Routee:RouteePic:1.0.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
     implementation "com.android.support:appcompat-v7:${supportLibVersion}"

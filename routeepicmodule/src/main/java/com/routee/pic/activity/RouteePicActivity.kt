@@ -17,6 +17,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.CompoundButton
 import android.widget.Toast
+import com.routee.pic.R
 import com.routee.pic.adpter.RouteePicAdapter
 import com.routee.pic.adpter.SelectedCountListener
 import com.routee.pic.camera.CameraView
@@ -26,7 +27,6 @@ import com.routee.pic.entity.ImageFolder
 import com.routee.pic.entity.RouteePicEntity
 import com.routee.pic.tools.BitmapUtil
 import com.routee.pic.tools.DisplayUtils
-import com.routee.picdemo.R
 import kotlinx.android.synthetic.main.activity_routee_pic.*
 import kotlinx.android.synthetic.main.viewstub_pic.*
 import java.io.File
@@ -45,8 +45,6 @@ class RouteePicActivity : AppCompatActivity(), SelectedCountListener {
     //拍照区域
     var mRect: Rect = Rect()
     var mBackgroundHandler: Handler? = null
-    var MAX_PREVIEW_WIDTH = 0
-    var MAX_PREVIEW_HEIGHT = 0
     var mLoading: LoadingDialog? = null
     //相机获取的bitmap
     var mNewBm: Bitmap? = null
@@ -91,14 +89,14 @@ class RouteePicActivity : AppCompatActivity(), SelectedCountListener {
                 val bitmapHeight = bitmap.height.toFloat()
                 val widthScale: Float
                 val heghtScale: Float
-                if (MAX_PREVIEW_WIDTH < MAX_PREVIEW_HEIGHT * bitmapWidth / bitmapHeight) {
+                if (cameraView.width < cameraView.height * bitmapWidth / bitmapHeight) {
                     //                setMeasuredDimension(height * bitmapWidth / bitmapHeight, height);
-                    widthScale = bitmapHeight / MAX_PREVIEW_HEIGHT
-                    heghtScale = bitmapHeight / MAX_PREVIEW_HEIGHT
+                    widthScale = bitmapHeight / cameraView.height
+                    heghtScale = bitmapHeight / cameraView.height
                 } else {
                     //                setMeasuredDimension(width, width * bitmapHeight / bitmapWidth);
-                    widthScale = bitmapWidth / MAX_PREVIEW_WIDTH
-                    heghtScale = bitmapWidth / MAX_PREVIEW_WIDTH
+                    widthScale = bitmapWidth / cameraView.width
+                    heghtScale = bitmapWidth / cameraView.width
                 }
                 //            android.util.Log.e("xxxxxx", "mSensorOrientation = " + mSensorOrientation);
                 if (widthScale < 1.0 || heghtScale < 1.0) {
@@ -240,8 +238,6 @@ class RouteePicActivity : AppCompatActivity(), SelectedCountListener {
 
     //初始化相机
     private fun initCamera() {
-        MAX_PREVIEW_WIDTH = resources.displayMetrics.widthPixels
-        MAX_PREVIEW_HEIGHT = resources.displayMetrics.heightPixels
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         mRect = Rect((resources.displayMetrics.widthPixels - DisplayUtils.dp2px(this, 220)) / 2
                 , (resources.displayMetrics.heightPixels - DisplayUtils.dp2px(this, 400)) / 2

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.routee.picdemo.R
+import com.routee.pic.R
 
 /**
  * @author: Routee

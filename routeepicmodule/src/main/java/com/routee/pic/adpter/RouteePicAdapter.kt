@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import com.routee.pic.R
 import com.routee.pic.entity.RouteePicEntity
 import com.routee.pic.loader.ImageEngine
-import com.routee.picdemo.R
 
 /**
  * @author: Routee
