@@ -6,10 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.graphics.Rect
 import android.net.Uri
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.os.HandlerThread
+import android.os.*
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
@@ -277,6 +274,7 @@ class RouteePicActivity : AppCompatActivity(), SelectedCountListener {
             mLoading!!.show(fragmentManager, "loading")
         } else {
             mLoading!!.dismissAllowingStateLoss()
+            Handler(Looper.getMainLooper()).sendEmptyMessage(0)
             mLoading = null
         }
     }
