@@ -336,16 +336,11 @@ class RouteePicActivity : AppCompatActivity(), SelectedCountListener {
         }
         val sdf = SimpleDateFormat("yyyyMMddHHmmss")
         showLoading(true)
-        Executors.newCachedThreadPool().run {
-            var mCamResultPath = BitmapUtil.saveMyBitmap(entity.PIC_SAVE_PATH, "routee" + sdf.format(Date()) + ".png", mNewBm)
-            sendBroadcast(Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(File(mCamResultPath))))
-            initAlbum()
-            entity.SELECTED_PICS.add(mCamResultPath)
-            runOnUiThread {
-                showLoading(false)
-                setResultPic()
-            }
-        }
+        var mCamResultPath = BitmapUtil.saveMyBitmap(entity.PIC_SAVE_PATH, "routee" + sdf.format(Date()) + ".png", mNewBm)
+        sendBroadcast(Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(File(mCamResultPath))))
+        entity.SELECTED_PICS.add(mCamResultPath)
+        initAlbum()
+        setResultPic()
     }
 
     private fun setResultPic() {
